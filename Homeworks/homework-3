@@ -1,0 +1,50 @@
+# ###################################
+# Задача 1.
+
+import random
+
+def guess_number_game():
+    number = random.randint(1, 10)
+    print("Спробуйте вгадати число від 1 до 10.")
+
+    while True:
+        try:
+            guess = int(input("Ваше припущення: "))
+            if guess < number:
+                print("More")
+            elif guess > number:
+                print("Less")
+            else:
+                print("You won!")
+                break
+        except ValueError:
+            print("Будь ласка, введіть ціле число.")
+
+# ###################################
+# Задача 2.
+
+def month_display():
+    number = random.randint(1, 12)
+    months = [
+        "January", "February", "March", "April", "May", "June", "July",
+        "August", "September", "October", "November", "December"
+    ]
+    print(f"{number} - {months[number - 1]}")
+
+# ###################################
+# Задача 3.
+
+def power_calculation():
+    try:
+        base = int(input("Введіть перше число: "))
+        exponent = int(input("Введіть друге число: "))
+        result = base ** exponent
+        print(f"Результат: {result}")
+    except ValueError:
+        print("Введено не число.")
+    except OverflowError:
+        print("Число надто велике для обчислення.")
+    except Exception as e:
+        print(f"Непередбачена помилка: {e}")
+
+# ###################################
