@@ -1,0 +1,87 @@
+###################################
+# Задача 1
+# Дан ціле число (int). Порахувати скільки нулів в цьому числі.
+###################################
+
+def count_zeros_in_number(number):
+    return str(number).count('0')
+
+number = 1002000
+print(count_zeros_in_number(number))
+
+###################################
+# Задача 2
+# Дан ціле число (int). Порахувати скільки нулів в кінці цього числа.
+###################################
+
+def count_trailing_zeros(number):
+    str_number = str(number)
+    count = 0
+    for digit in reversed(str_number):
+        if digit == '0':
+            count += 1
+        else:
+            break
+    return count
+
+number = 1002000
+print(count_trailing_zeros(number))
+
+###################################
+# Задача 3
+# Дан список my_list. СТВОРИТИ НОВИЙ список new_list у якого перший елемент з my_list
+# стоїть на останньому місці в new_list. 
+###################################
+
+my_list = [1, 2, 3, 4]
+new_list = my_list[1:] + [my_list[0]]
+print(new_list)
+
+###################################
+# Задача 4
+# Дана строка в якій є числа (розділяються пробілами).
+# Наприклад "43 більше за 34, але менше за 56". Знайти суму ВСІХ ЧИСЕЛ в цій строкі.
+###################################
+
+def sum_of_numbers_in_string(my_str):
+    words = my_str.split()
+    total_sum = 0
+    for word in words:
+        if word.isdigit():
+            total_sum += int(word)
+    return total_sum
+
+my_str = "43 більше за 34, але менше за 56"
+print(sum_of_numbers_in_string(my_str))
+
+###################################
+# Задача 5
+# Дана строка my_str. Розділіть цю строку на пари з двох символів і помістіть ці пари в список.
+# Якщо строка має непарну кількість символів, останній символ останньої пари має бути підкресленням ('_').
+###################################
+
+def split_into_pairs(my_str):
+    result = [my_str[i:i+2] for i in range(0, len(my_str), 2)]
+    if len(my_str) % 2 != 0:
+        result[-1] = result[-1] + '_'
+    return result
+
+my_str = "abcde"
+print(split_into_pairs(my_str))
+
+###################################
+# Задача 6
+# Дан список чисел. Порахуйте, скільки в цьому списку елементів, 
+# які більше за суму двох своїх сусідів (зліва і справа), і НАДРУКУЙТЕ КІЛЬКІСТЬ таких елементів.
+# Крайні елементи списку не враховувати, оскільки в них недостатньо сусідів.
+###################################
+
+def count_elements_greater_than_neighbors(my_list):
+    count = 0
+    for i in range(1, len(my_list) - 1):
+        if my_list[i] > my_list[i - 1] + my_list[i + 1]:
+            count += 1
+    return count
+
+my_list = [2, 4, 1, 5, 3, 9, 0, 7]
+print(count_elements_greater_than_neighbors(my_list))
